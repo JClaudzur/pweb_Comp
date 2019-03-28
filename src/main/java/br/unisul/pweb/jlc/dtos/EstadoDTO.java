@@ -1,31 +1,19 @@
-package br.unisul.pweb.jlc.domain;
+package br.unisul.pweb.jlc.dtos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import br.unisul.pweb.jlc.domain.Estado;
 
-@Entity
-public class Categoria implements Serializable{
-
+public class EstadoDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
-	@ManyToMany(mappedBy= "categorias")
-	private List<Produto> produtos = new ArrayList<>();
-	
-	public Categoria() {
-		
+	public EstadoDTO(Estado c) {
+		id = c.getId();
+		nome = c.getNome();
 	}
 	
 	@Override
@@ -43,7 +31,7 @@ public class Categoria implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		EstadoDTO other = (EstadoDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -53,22 +41,6 @@ public class Categoria implements Serializable{
 	}
 	
 	
-	
-	public Categoria(Integer id, String nome) {
-		super();
-		this.id = id;
-		this.nome = nome;
-	}
-	
-	
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -84,5 +56,4 @@ public class Categoria implements Serializable{
 	
 	
 
-		
 }

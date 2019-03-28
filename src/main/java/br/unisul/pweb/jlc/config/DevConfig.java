@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.unisul.pweb.jlc.sevices.DbService;
+import br.unisul.pweb.jlc.services.DbService;
 
 @Configuration
 public class DevConfig {

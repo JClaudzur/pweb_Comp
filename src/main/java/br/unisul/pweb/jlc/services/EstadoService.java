@@ -1,4 +1,4 @@
-package br.unisul.pweb.jlc.sevices;
+package br.unisul.pweb.jlc.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,32 +6,32 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.unisul.pweb.jlc.domain.Categoria;
-import br.unisul.pweb.jlc.repository.CategoriaRepository;
+import br.unisul.pweb.jlc.domain.Estado;
+import br.unisul.pweb.jlc.repository.EstadoRepository;
 
 @Service
-public class CategoriaSevices {
+public class EstadoService {
 	@Autowired
-	private CategoriaRepository rep;
+	private EstadoRepository rep;
 	
-	public CategoriaSevices() {
+	public EstadoService() {
 		
 	}
 
 	//BUSCAR POR ID
-	public Categoria find (Integer id) {
-		Optional<Categoria> obj = rep.findById(id);
+	public Estado find (Integer id) {
+		Optional<Estado> obj = rep.findById(id);
 		return obj.orElse(null);
 	}
 
 	//INSERIR
-	public Categoria insert (Categoria obj) {
+	public Estado insert (Estado obj) {
 		obj.setId(null);
 		return rep.save(obj);
 	}
 
 	//ATUALIZAR
-	public Categoria update (Categoria obj) {
+	public Estado update (Estado obj) {
 		find(obj.getId());
 		return rep.save(obj);
 	}
@@ -43,9 +43,7 @@ public class CategoriaSevices {
 	}
 
 	//LISTAR TODAS
-	public List<Categoria> findAll(){
+	public List<Estado> findAll(){
 		return rep.findAll();
 	}
-	
-	
 }
