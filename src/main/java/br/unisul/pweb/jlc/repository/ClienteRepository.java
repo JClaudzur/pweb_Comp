@@ -3,9 +3,9 @@ package br.unisul.pweb.jlc.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.unisul.pweb.jlc.domain.Categoria;
+import br.unisul.pweb.jlc.domain.Cliente;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
+public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
 }
